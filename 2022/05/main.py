@@ -1,4 +1,4 @@
-from string import ascii_uppercase, digits
+from string import ascii_uppercase
 
 INPUT_FILE = "input.txt"
 
