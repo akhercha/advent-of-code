@@ -13,15 +13,15 @@ def initialize_stacks(lines):
     return l_stacks
 
 
-def get_numbers_from_operation(line_op):
+def get_numbers_from_procedure(line_op):
     return list(map(int, [elt for elt in line_op.split(" ") if elt.isdigit()]))
 
 
 def part_two(lines):
-    border_stacks_operation = lines.index("")
-    l_stacks = initialize_stacks(lines[:border_stacks_operation])
-    for operation in lines[border_stacks_operation + 1 :]:
-        nb_to_move, start, end = get_numbers_from_operation(operation)
+    border_stacks_procedures = lines.index("")
+    l_stacks = initialize_stacks(lines[:border_stacks_procedures])
+    for procedure in lines[border_stacks_procedures + 1 :]:
+        nb_to_move, start, end = get_numbers_from_procedure(procedure)
         to_move = l_stacks[start - 1][-nb_to_move:]
         l_stacks[start - 1] = l_stacks[start - 1][:-nb_to_move]
         l_stacks[end - 1] += to_move
@@ -29,10 +29,10 @@ def part_two(lines):
 
 
 def part_one(lines):
-    border_stacks_operation = lines.index("")
-    l_stacks = initialize_stacks(lines[:border_stacks_operation])
-    for operation in lines[border_stacks_operation + 1 :]:
-        nb_to_move, start, end = get_numbers_from_operation(operation)
+    border_stacks_procedures = lines.index("")
+    l_stacks = initialize_stacks(lines[:border_stacks_procedures])
+    for procedure in lines[border_stacks_procedures + 1 :]:
+        nb_to_move, start, end = get_numbers_from_procedure(procedure)
         to_move = l_stacks[start - 1][-nb_to_move:]
         l_stacks[start - 1] = l_stacks[start - 1][:-nb_to_move]
         l_stacks[end - 1] += reversed(to_move)
